@@ -1,0 +1,35 @@
+{
+    "1": {
+        "naziv": "Mleko",
+        "cena": "160",
+        "kategorija": [
+            "Mlecni proizvod"
+        ],
+        "stanje": "150"
+    },
+    "2": {
+        "naziv": "Hleb",
+        "cena": "90",
+        "kategorija": [
+            "Peciva"
+        ],
+        "stanje": "3"
+    },
+    "3": {
+        "naziv": "Cokolada",
+        "cena": "200",
+        "kategorija": [
+            "Mlecni proizvod",
+            "slatkisi"
+        ],
+        "stanje": "4"
+    },
+    "4": {
+        "naziv": "Sir",
+        "cena": "170",
+        "kategorija": [
+            "Mlecni proizvod"
+        ],
+        "stanje": "4"
+    }
+}

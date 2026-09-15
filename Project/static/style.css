@@ -1,0 +1,203 @@
+/* style.css */
+
+/* Osnovno podešavanje */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    text-align: center;
+}
+
+/* Naslovi */
+h1, h2, h3 {
+    margin: 15px 0;
+    font-weight: 600;
+    color: #222;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #444;
+}
+
+/* Forme */
+form {
+    background: #ffffff;
+    max-width: 420px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+form p {
+    margin: 12px 0 6px;
+    font-weight: 500;
+}
+
+/* Input i select polja */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fff;
+}
+
+input[readonly] {
+    background: #eeeeee;
+    color: #555;
+}
+
+/* Dugmad */
+input[type="submit"],
+button {
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2f3e46;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: #1f2a30;
+}
+
+/* Tabele */
+table {
+    width: 90%;
+    max-width: 1000px;
+    margin: 25px auto;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #2f3e46;
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+tr:hover {
+    background: #eef2f5;
+}
+
+/* Linkovi */
+a {
+    color: #2f3e46;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Forma unutar tabele, npr. poručivanje */
+td form {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    text-align: center;
+}
+
+td form select {
+    width: auto;
+    min-width: 70px;
+    margin-right: 8px;
+}
+
+td form input[type="submit"] {
+    width: auto;
+    margin-top: 0;
+    padding: 8px 12px;
+}
+
+/* Flash poruke */
+body > h1:nth-of-type(1) {
+    margin-top: 10px;
+}
+
+/* Poruke iz flash-a, pošto ih prikazuješ kao h1 */
+body h1:first-child + h1,
+body h1:first-child {
+    text-align: center;
+}
+
+/* Logout link */
+body > a[href="/logout"] {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #dddddd;
+    color: #222;
+}
+
+body > a[href="/logout"]:hover {
+    background: #cccccc;
+    text-decoration: none;
+}
+
+/* Responzivnost */
+@media (max-width: 700px) {
+    body {
+        padding: 15px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    form {
+        width: 100%;
+        padding: 18px;
+    }
+}

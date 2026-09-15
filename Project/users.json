@@ -1,0 +1,37 @@
+{
+    "1": {
+        "ime": "Djordje",
+        "prezime": "Gobeljic",
+        "sifra": "djordje123",
+        "uloga": "korisnik",
+        "username": "djordje"
+    },
+    "2": {
+        "ime": "Nikola",
+        "prezime": "Kuzmanovic",
+        "sifra": "nikola123",
+        "uloga": "admin",
+        "username": "nikola"
+    },
+    "3": {
+        "ime": "Miodrag",
+        "prezime": "Rakitic",
+        "sifra": "miodrag213",
+        "uloga": "korisnik",
+        "username": "miodrag"
+    },
+    "4": {
+        "ime": "tijana",
+        "prezime": "gitaric",
+        "username": "tijana",
+        "sifra": "tijana123",
+        "uloga": "korisnik"
+    },
+    "5": {
+        "ime": "marko",
+        "prezime": "petrovic",
+        "username": "mare",
+        "sifra": "mare123",
+        "uloga": "korisnik"
+    }
+}

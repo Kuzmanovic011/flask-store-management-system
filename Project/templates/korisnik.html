@@ -1,0 +1,120 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>{{korisnik.uloga}}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+
+    {% with poruke=get_flashed_messages() %}
+        {% if poruke %}
+            {% for poruka in poruke %}
+                <h1>{{ poruka }}</h1>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>Dobrodosli {{korisnik.ime}} {{ korisnik.prezime }}  </h1>
+
+    {% if korisnik.uloga == "admin" %}
+        <h1>Dobrodošli admine</h1>
+        <h1>Lista Svih proizvoda</h1>
+
+        <table border="1">
+            <tr>
+                <th>Naziv</th>
+                <th>Kategorija</th>
+                <th>Stanje</th>
+                <th>Cena</th>
+                <th>Akcija</th>
+            </tr>
+
+            {% for id,proizvod in proizvodi.items() %}
+            <tr>
+                <td>{{ proizvod.naziv }}</td>
+                <td>{{ proizvod.kategorija | join(", ") }}</td>
+                <td>{{ proizvod.stanje }}</td>
+                <td>{{ proizvod.cena }}</td>
+                <td>
+                    <a href="/izmenaProizvoda/{{ id }}">Izmeni</a>
+                    |
+                    <a href="/obrisiProizvod/{{ id }}">Obrisi</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    <h1>Lista Svih korisnika</h1>
+
+        <table border="1">
+            <tr>
+                <th>Korisnicko ime</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Uloga</th>
+                <th>Akcija</th>
+            </tr>
+
+            {% for id,korisnik in korisnici.items() %}
+            <tr>
+                <td>{{ korisnik.username }}</td>
+                <td>{{ korisnik.ime }}</td>
+                <td>{{ korisnik.prezime }}</td>
+                <td>{{ korisnik.uloga }}</td>
+                <td>
+                    <a href="/izmenaKorisnika/{{ id }}">Izmeni</a>
+
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <h2>Admin statistika</h2>
+
+
+        <p>Ukupna vrednost robe: {{ ukupna_vrednost }} RSD</p>
+
+    {% elif korisnik.uloga == "korisnik" %}
+        <h1>Dobrodošli korisniče</h1>
+        <h2>Lista Svih proizvoda</h2>
+
+
+        <table border="1">
+            <tr>
+                <th>Naziv</th>
+                <th>Kategorija</th>
+                <th>Cena</th>
+                <th>Stanje</th>
+            </tr>
+
+            {% for id,proizvod in proizvodi.items()  %}
+            <tr>
+                <td>{{ proizvod.naziv }}</td>
+                <td>{{ proizvod.kategorija | join(", ") }}</td>
+
+                <td>{{ proizvod.cena }}</td>
+                <td>
+                    <form action="/narucivanje" method="POST">
+                        <select name="kolicina">
+                            {% for i in range(1, proizvod.stanje | int + 1) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Poruci"/>
+                        <input type="hidden" name="idProizvoda" value="{{ id }}">
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+
+
+    {% endif %}
+
+    <a href="/logout">Izlogujte se</a>
+    </body>
+    </html>

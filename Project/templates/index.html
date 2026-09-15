@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pocetna</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Ulogujte se</h1>
+
+{% with poruke=get_flashed_messages() %}
+    {% if poruke %}
+        {% for poruka in poruke %}
+            <h1>{{ poruka }}</h1>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form action = "http://localhost:5000/login" method = "POST">
+    <p><h3>Unesite podatke</h3></p>
+    <p>Korisnicko ime: </p><input type = 'text' name = 'username' required/>
+    <p>Lozinka: </p><input type="password" name="password" required />
+    <p><input type = 'submit' value = 'Login'/></p>
+</form>
+
+
+</body>
+</html>

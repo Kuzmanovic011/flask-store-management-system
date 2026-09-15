@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registracija</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+{% with poruke=get_flashed_messages() %}
+    {% if poruke %}
+        {% for poruka in poruke %}
+            <h1>{{ poruka }}</h1>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<h1>Kreirajte nalog</h1>
+
+<form action = "http://localhost:5000/register" method = "POST">
+    <p><h3>Unesite podatke</h3></p>
+    <p>Ime: </p><input type = 'text' name = 'ime' required/>
+    <p>Prezime: </p><input type="text" name="prezime" required />
+    <p>Korisnicko ime: </p><input type = 'text' name = 'username' required/>
+    <p>Lozinka: </p><input type="password" name="password" required />
+    <p><input type = 'submit' value = 'Login'/></p>
+    <input type="hidden" name="uloga" value="korisnik">
+</form>
+
+
+</body>
+</html>

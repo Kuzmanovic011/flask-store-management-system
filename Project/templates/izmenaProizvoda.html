@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Izmena proizvoda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+{% with poruke=get_flashed_messages() %}
+    {% if poruke %}
+        {% for poruka in poruke %}
+            <h1>{{ poruka }}</h1>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<h1>Izmenite proizvod {{proizvod.naziv}}</h1>
+
+<form action = "http://localhost:5000/izmenaProizvoda/{{idProizvoda}}" method = "POST">
+    <p><h3>Unesite podatke</h3></p>
+    <p>Naziv: </p><input type = 'text' name = 'naziv' readonly value="{{proizvod.naziv}}"/>
+    <p>Kategorija: </p><input type="text" name="kategorija" readonly value="{{(',').join(proizvod.kategorija)}}" />
+    <p>Stanje: </p><input type = 'number' min="0" name = 'stanje' value="{{proizvod.stanje}}" required/>
+    <p>Cena: </p><input type = 'number' min="0" name = 'cena' value="{{proizvod.cena}}" required />
+    <input type="hidden" name="id" value="{{idProizvoda}}">
+    <p><input type = 'submit' value = 'Izmeni'/></p>
+
+
+</form>
+
+
+</body>
+</html>
